@@ -1,0 +1,14 @@
+Lorenzo Fiaschi was born in Piombino, Italy, on Jenuary 16th 1995.
+He received the Bechelor's degree cum laude in Computer Engineering
+from the University of Pisa, Italy, in 2018. He received the Master's
+degree in Computer Science and Artificial Intelligence cum laude from
+the University of Genoa, Italy, in 2019. He is working toward the Ph.D.
+degree in Computer Engineering at the University of Pisa, Italy.
+
+He is currently Assistant of the Bechelor's course Elements of Programming
+and of the Master's course Symbolic and Evolutionary Artificial Intelligence.
+Among the others, he won the "Springer Young Researcher Prize" at the NUMTA'19
+conference and a national grant for ardware accelerators for "Deep NeuralNetworks
+and Machine Learning" workshop organization. His current research interests
+include Artificial and Evolutionary Intelligence, Applied non-Archimedean 
+models and Game Theory.
