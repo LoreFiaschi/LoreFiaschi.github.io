@@ -1,0 +1,42 @@
+# ============================================================
+#  Site configuration  —  Lorenzo Fiaschi
+#  Most day-to-day content lives in the _data/*.yml files,
+#  not here. Edit those to update the page.
+# ============================================================
+
+title: "Lorenzo Fiaschi"
+tagline: "Postdoctoral Researcher · ETH Zürich"
+description: >-
+  Lorenzo Fiaschi — postdoctoral researcher at ETH Zürich working on
+  optimization, game theory, reinforcement learning, and non-standard
+  analysis for the responsible automation of autonomous systems.
+lang: "en"
+
+# --- Domain / hosting -------------------------------------------------------
+# TODO: set this to your custom domain once connected (used for SEO + sitemap).
+#       Also update the CNAME file in the repo root with the bare domain.
+url: "https://lorenzofiaschi.it"
+baseurl: ""            # leave empty for a custom domain or user-site
+
+# --- Author / SEO -----------------------------------------------------------
+author:
+  name: "Lorenzo Fiaschi"
+  email: "lfiaschi@ethz.ch"
+
+# --- Build ------------------------------------------------------------------
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Files/folders kept out of the built site.
+exclude:
+  - docs
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .gitignore
+  - scratchpad

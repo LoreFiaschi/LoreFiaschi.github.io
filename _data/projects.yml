@@ -1,0 +1,17 @@
+# Research projects. Newest first. "detail" is plain text.
+
+- name: "NCCR Automation"
+  when: "2025 — now"
+  detail: "Challenge 2 · Responsible Automation — coordinator of WP 2.1, Responsible Design."
+
+- name: "ESTRA — Efficient Safe Train Dynamics"
+  when: "2025 — now"
+  detail: "Work-package coordinator (WP 4 & 6) — safety certification & driving-rule optimization."
+
+- name: "FAIR — Future Artificial Intelligence Research"
+  when: "2023 — 2025"
+  detail: "Spoke 1 · Human-centered AI (PNRR). WP 2.3 — non-standard analysis to empower deep neural networks & reinforcement learning."
+
+- name: "TEXTAROSSA"
+  when: "2022 — 2023"
+  detail: "Horizon 2020 — mixed-precision algorithms for HPC applications of optimization & machine learning."

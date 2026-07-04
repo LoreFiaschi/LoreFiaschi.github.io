@@ -1,0 +1,14 @@
+# Newest first. Add a new item at the top whenever something happens.
+# "date" is a short label (year or month/year); "html" allows <strong>, <a>, etc.
+
+- date: "2026"
+  html: "Awarded the <strong>RobotX ENCODER</strong> grant (124,000 CHF) for environment co-design of autonomous mobile robots."
+
+- date: "2026"
+  html: "Co-organizing the <strong>Workshop on Responsible Automation</strong>, Zürich."
+
+- date: "2025"
+  html: "Joined <strong>ETH Zürich</strong> as a postdoctoral researcher in Mechanical Engineering."
+
+- date: "2024"
+  html: "Delivered a <strong>keynote at ICORES 2024</strong> on lexicographic multi-objective optimization."

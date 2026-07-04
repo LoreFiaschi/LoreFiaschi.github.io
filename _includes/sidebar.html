@@ -1,0 +1,29 @@
+{%- assign p = site.data.profile -%}
+<aside class="side">
+  <p class="s-name">{{ p.name }}</p>
+  <p class="s-role">{{ p.role }}</p>
+  <p class="s-place">
+    {{ p.affiliation }}<br>
+    <a href="{{ p.institution_url }}" rel="noopener">{{ p.institution }}</a>
+  </p>
+
+  <nav class="s-nav" aria-label="Sections">
+    <a href="#about">About me</a>
+    <a href="#news">News</a>
+    <a href="#projects">Research projects</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#cv">CV</a>
+  </nav>
+
+  <div class="s-contact">
+    <a href="{{ p.institution_url }}" rel="noopener"><span class="ic" aria-hidden="true">&#x2302;</span> Research at IDSC</a>
+    {%- for link in p.links %}
+    <a href="{{ link.url }}" rel="noopener">{% if link.icon_svg == 'scholar' %}{% include icon-scholar.html %}{% else %}<span class="ic" aria-hidden="true">{{ link.icon }}</span>{% endif %} {{ link.name }}</a>
+    {%- endfor %}
+    <a href="mailto:{{ p.email }}"><span class="ic" aria-hidden="true">&#x2709;</span> {{ p.email }}</a>
+    {%- if p.show_address %}
+    <p class="s-address">{{ p.address | strip | newline_to_br }}</p>
+    {%- endif %}
+    <button class="toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">&#x263e; Dark</button>
+  </div>
+</aside>
