@@ -9,17 +9,13 @@ affiliation: "Institute for Dynamic Systems & Control"
 institution: "ETH Zürich"
 institution_url: "https://idsc.ethz.ch/the-institute/people/person-detail.lorenzo-fiaschi.html"
 
-# Square headshot — place the file in assets/img/ then set the path here.
+# Headshot — place the file in assets/img/ then set the path here.
 photo: "/assets/img/me.jpg"
 photo_alt: "Portrait of Lorenzo Fiaschi"
-initials: "LF"
 
 # CV — place the PDF in assets/cv/ then set the path here.
 cv: "/assets/cv/CV_American.pdf"
 show_cv_button: true
-
-# Short research vision (the big line in the hero)
-vision: "Making decisions rigorous and computable across the infinite, the finite, and the infinitesimal."
 
 # One-paragraph bio (under the hero) — tweak to your voice
 bio: >-
@@ -31,15 +27,6 @@ bio: >-
 quote:
   text: "The infinite! No other question has ever moved so profoundly the spirit of man."
   author: "David Hilbert"                    # TODO: keep or replace
-
-# Headline numbers in the hero strip
-stats:
-  - { n: "17",   l: "Publications" }
-  - { n: "6",    l: "PhD students co-supervised" }
-  - { n: "124k", l: "CHF grant · ENCODER" }
-
-publications_count: 17
-scholar_url: "https://scholar.google.com/citations?user=j3wk6doAAAAJ&hl=it"
 
 # Contact block
 email: "lfiaschi@ethz.ch"

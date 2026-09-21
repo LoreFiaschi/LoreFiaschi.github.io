@@ -1,68 +1,79 @@
 # Lorenzo Fiaschi — personal website
 
-A static, [Jekyll](https://jekyllrb.com/)-powered academic homepage, hosted on **GitHub Pages**.
+A static, [Jekyll](https://jekyllrb.com/)-powered academic homepage hosted on **GitHub Pages**
+at **https://lorenzofiaschi.it**.
 No database, no server-side code — just HTML, CSS, a sprinkle of vanilla JS, and YAML data files.
 
 ---
 
 ## ✏️ How to update the site (no coding needed)
 
-Almost everything you'll change lives in **`_data/`**. Edit a YAML file, commit, and the site rebuilds automatically.
+Almost everything you'll change lives in **`_data/`**. Edit a YAML file, commit and push, and the
+site rebuilds automatically.
 
 | What you want to change | Edit this file |
 |---|---|
-| Name, role, vision, quote, photo, CV link, contacts, stats, address | `_data/profile.yml` |
-| The **News** rail (add a line at the top for newest) | `_data/news.yml` |
+| Name, role, bio, quote, photo, CV link, contacts, address | `_data/profile.yml` |
+| The **News** list (add a line at the top for the newest) | `_data/news.yml` |
+| Research projects | `_data/projects.yml` |
+| Teaching | `_data/teaching.yml` |
 | Experience / appointments | `_data/experience.yml` |
 | Education | `_data/education.yml` |
-| Teaching | `_data/teaching.yml` |
-| Research-interest chips | `_data/interests.yml` |
 
-### Add your photo
-Drop a square headshot (≈ 600×600 px, `.jpg` or `.png`) into `assets/img/` and set
-`photo:` in `_data/profile.yml` to its path (e.g. `/assets/img/lorenzo.jpg`).
+### Replace the photo
+Drop a headshot into `assets/img/` (portrait orientation works best — it's displayed in a 21:25
+frame, anchored to the top so the face isn't cropped) and point `photo:` in `_data/profile.yml`
+at it, e.g. `/assets/img/me.jpg`.
 
-### Add your CV
-Drop your `CV.pdf` into `assets/cv/` and set `cv:` in `_data/profile.yml`
-(e.g. `/assets/cv/Lorenzo-Fiaschi-CV.pdf`).
-
----
-
-## 🌐 Connect your custom domain
-1. Put your bare domain in the **`CNAME`** file (one line, e.g. `lorenzofiaschi.com`).
-2. Set `url:` in `_config.yml` to `https://lorenzofiaschi.com`.
-3. At your domain registrar, add DNS records pointing to GitHub Pages
-   ([official guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)):
-   - `A` records → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - or a `CNAME` (for `www`) → `<username>.github.io`
-4. In the repo **Settings → Pages**, enable HTTPS once the domain verifies.
-
-> Until the domain is connected, the site is reachable at `https://<username>.github.io/<repo>`.
+### Replace the CV
+Drop the PDF into `assets/cv/` and point `cv:` in `_data/profile.yml` at it,
+e.g. `/assets/cv/CV_American.pdf`.
 
 ---
 
-## 🎨 Design tokens
+## 🌐 Custom domain (already configured)
+
+- **`CNAME`** contains the bare domain `lorenzofiaschi.it`.
+- `url:` in `_config.yml` is `https://lorenzofiaschi.it`.
+- DNS at the registrar: four `A` records on `@` → `185.199.108.153`, `185.199.109.153`,
+  `185.199.110.153`, `185.199.111.153` (plus the four matching `AAAA` records),
+  and a `www` CNAME → `lorefiaschi.github.io`.
+- **Settings → Pages**: source = branch `main`, folder `/ (root)`, custom domain set,
+  and **Enforce HTTPS** ticked once GitHub issues the certificate.
+
+---
+
+## 🎨 Design
+
 Colors, fonts and spacing are CSS variables at the top of **`assets/css/style.css`**
 (`:root` = light theme, `html[data-theme="dark"]` = dark theme). Change the accent in one place.
 
-Dark/light mode is automatic (follows the visitor's OS) with a manual toggle in the sidebar;
-the choice is remembered in `localStorage` and applied before first paint (no flash).
+The layout is **fully fluid** — it always fills the viewport width at any size or aspect ratio,
+with a stacked arrangement for tablets (≤980px) and a tighter one for phones (≤560px).
+
+Dark/light mode follows the visitor's OS, with a manual toggle in the sidebar; the choice is
+remembered in `localStorage` and applied before first paint (no flash). The sidebar menu
+highlights the section currently in view.
 
 ---
 
 ## 🔧 Run locally (optional)
+
+Requires Ruby with Jekyll and the two plugins installed:
+
 ```bash
-bundle install
-bundle exec jekyll serve   # → http://localhost:4000
+gem install jekyll jekyll-seo-tag jekyll-sitemap
+jekyll serve      # → http://localhost:4000
 ```
 
 ## 📁 Structure
+
 ```
-_config.yml          site settings
-index.html           the page (assembles sections from _data)
-_layouts/default.html overall HTML shell (sidebar + main)
-_includes/           head, sidebar, news rail
-_data/               ← your editable content
-assets/css|js|img|cv static files
-CNAME                your custom domain
+_config.yml             site settings
+index.html              the page (assembles every section from _data)
+_layouts/default.html   HTML shell (sidebar + main)
+_includes/              head, sidebar, news, Scholar icon
+_data/                  ← your editable content
+assets/css|js|img|cv    styles, theme + scrollspy scripts, photo, CV
+CNAME                   the custom domain
 ```

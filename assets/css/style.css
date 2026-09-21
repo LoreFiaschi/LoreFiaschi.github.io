@@ -2,6 +2,9 @@
    Lorenzo Fiaschi — site styles
    Design tokens live in :root (light) and html[data-theme="dark"].
    Change the accent in ONE place and the whole site follows.
+
+   Layout is FULLY FLUID: it always fills the viewport width at any
+   screen size or aspect ratio. No fixed max-widths anywhere.
    ============================================================ */
 
 :root {
@@ -13,6 +16,7 @@
   --serif:"Cambria", Georgia, "Times New Roman", serif;
   --sans:"Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
   --mono:"Cascadia Code", Consolas, ui-monospace, Menlo, monospace;
+  --pad-x: clamp(18px, 3vw, 56px);   /* side padding, scales with the screen */
 }
 html[data-theme="dark"] {
   --bg:#0d1311; --surface:#141c19; --ink:#e7ede9; --muted:#94a39c; --line:#243029;
@@ -28,6 +32,7 @@ body {
   line-height:1.6; -webkit-font-smoothing:antialiased;
   transition:background .3s, color .3s;
 }
+img { max-width:100%; }
 a { color:var(--accent); text-decoration:none; }
 a:hover { color:var(--accent-2); text-decoration:underline; }
 :focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
@@ -39,14 +44,16 @@ a:hover { color:var(--accent-2); text-decoration:underline; }
 }
 .skip-link:focus { left:0; }
 
-.page { display:grid; grid-template-columns:320px 1fr; min-height:100vh; max-width:1320px; margin:0 auto; }
+/* Full-bleed shell: sidebar scales with the viewport, content takes all the rest */
+.page { display:grid; grid-template-columns:clamp(264px, 21vw, 380px) 1fr; min-height:100vh; width:100%; }
 
 /* ---------- Sidebar (pinned, non-scrolling, all info grouped) ---------- */
 .side {
-  background:var(--side-grad); color:var(--side-ink); padding:36px 28px;
+  background:var(--side-grad); color:var(--side-ink);
+  padding:clamp(24px,2.2vw,38px) clamp(16px,1.5vw,28px);
   position:sticky; top:0; height:100vh; overflow:hidden; display:flex; flex-direction:column;
 }
-.s-name { font-family:var(--serif); font-size:1.55rem; text-align:center; margin:8px 0 0; line-height:1.15; }
+.s-name { font-family:var(--serif); font-size:clamp(1.35rem,1.45vw,1.7rem); text-align:center; margin:8px 0 0; line-height:1.15; }
 .s-role { text-align:center; color:var(--side-muted); font-size:.9rem; margin:.4rem 0 0; }
 .s-place { text-align:center; font-size:.84rem; margin:.4rem 0 0; line-height:1.45; }
 .s-place a { color:#bfe0d8; }
@@ -67,21 +74,29 @@ a:hover { color:var(--accent-2); text-decoration:underline; }
 }
 .toggle:hover { color:#fff; border-color:rgba(255,255,255,.4); }
 
-/* ---------- Hero ---------- */
-.hero { display:flex; gap:44px; align-items:flex-start; padding:56px 52px 40px; border-bottom:1px solid var(--line); }
+/* ---------- Hero / About ---------- */
+.hero {
+  display:flex; gap:clamp(24px,3vw,48px); align-items:flex-start;
+  padding:clamp(30px,3.4vw,58px) var(--pad-x) clamp(24px,2.6vw,42px);
+  border-bottom:1px solid var(--line);
+}
 .hero-text { flex:1 1 auto; min-width:0; }
 .hero-photo { flex:0 0 auto; }
-.hero-photo img { display:block; width:210px; height:250px; object-fit:cover; object-position:center top; border-radius:16px; box-shadow:var(--shadow); border:1px solid var(--line); }
+.hero-photo img {
+  display:block; width:clamp(165px,12vw,250px); aspect-ratio:21/25; height:auto;
+  object-fit:cover; object-position:center top; border-radius:16px;
+  box-shadow:var(--shadow); border:1px solid var(--line);
+}
 .quote {
   margin:24px 0 0; padding:14px 0 14px 22px; border-left:3px solid var(--accent);
-  font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--muted); max-width:52ch;
+  font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--muted);
 }
 .quote cite { display:block; font-style:normal; font-size:.82rem; font-family:var(--sans); margin-top:8px; color:var(--muted); letter-spacing:.02em; }
-.hero-bio { font-size:1.12rem; line-height:1.7; color:var(--ink); margin:22px 0 0; max-width:60ch; }
+.hero-bio { font-size:1.12rem; line-height:1.7; color:var(--ink); margin:22px 0 0; }
 
-/* ---------- Main column (single column) ---------- */
-.main-col { padding:38px 52px 50px; }
-.block { max-width:760px; margin-bottom:40px; scroll-margin-top:24px; }
+/* ---------- Main column (single column, full width) ---------- */
+.main-col { padding:clamp(26px,2.6vw,40px) var(--pad-x) clamp(34px,3.2vw,52px); }
+.block { margin-bottom:40px; scroll-margin-top:24px; }
 .block:last-child { margin-bottom:0; }
 h2 { font-family:var(--serif); font-size:1.35rem; margin:0 0 16px; padding-bottom:9px; border-bottom:2px solid var(--accent); display:inline-block; }
 .subhead { font-family:var(--sans); font-size:.76rem; text-transform:uppercase; letter-spacing:.13em; color:var(--muted); margin:22px 0 6px; font-weight:700; }
@@ -99,25 +114,47 @@ h2 { font-family:var(--serif); font-size:1.35rem; margin:0 0 16px; padding-botto
 .ni .d { font-family:var(--mono); font-size:.78rem; color:var(--accent); letter-spacing:.04em; padding-top:2px; }
 .ni .t { font-size:.96rem; line-height:1.5; }
 
-/* CV section: heading + download button on one line */
+/* CV section: heading left, download button at the far right of the page */
 .cv-head { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; flex-wrap:wrap; }
 .cv-head h2 { margin:0; }
-#cv { max-width:none; }                 /* CV section spans full width so the button reaches the page's right edge */
-.cv-body { max-width:760px; }           /* keep experience & education at a readable width */
 .btn-accent { display:inline-flex; align-items:center; background:var(--accent); color:#fff; padding:10px 16px; border-radius:9px; font-weight:600; font-size:.88rem; }
 .btn-accent:hover { background:var(--accent-2); text-decoration:none; color:#fff; }
 
-.site-footer { padding:22px 52px; border-top:1px solid var(--line); color:var(--muted); font-size:.8rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.site-footer { padding:22px var(--pad-x); border-top:1px solid var(--line); color:var(--muted); font-size:.8rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
 
-/* ---------- Responsive ---------- */
+/* ============================================================
+   Tablet and below — the sidebar becomes a header band on top
+   ============================================================ */
 @media (max-width: 980px) {
   .page { grid-template-columns:1fr; }
-  .side { position:static; height:auto; overflow:visible; }
-  .s-nav { flex-direction:row; flex-wrap:wrap; justify-content:center; }
-  .s-contact { flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:center; }
-  .s-address { width:100%; text-align:center; }
-  .main-col { padding:32px 26px 50px; max-width:none; }
-  .hero { flex-direction:column-reverse; align-items:flex-start; gap:24px; padding:40px 26px 30px; }
-  .hero-photo img { width:150px; height:180px; }
-  .site-footer { padding:22px 26px; }
+  .side { position:static; height:auto; overflow:visible; padding:26px var(--pad-x) 20px; }
+  .s-name { font-size:1.5rem; }
+  .s-nav { flex-direction:row; flex-wrap:wrap; justify-content:center; gap:6px; margin:16px 0 8px; }
+  .s-nav a { background:rgba(255,255,255,.07); padding:7px 14px; }
+  .s-nav a.active { background:rgba(255,255,255,.2); box-shadow:none; }
+  .s-contact { flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px 18px; margin-top:8px; padding-top:12px; }
+  .s-address { width:100%; text-align:center; margin:0; }
+  .toggle { align-self:center; margin-top:4px; }
+  .hero { flex-direction:column-reverse; align-items:flex-start; gap:22px; }
+}
+
+/* ============================================================
+   Smartphone — same ingredients, tighter single-column rhythm
+   ============================================================ */
+@media (max-width: 560px) {
+  .s-name { font-size:1.35rem; }
+  .s-role, .s-place { font-size:.82rem; }
+  .s-nav a { font-size:.88rem; padding:6px 12px; }
+  .s-contact { font-size:.82rem; gap:9px 14px; }
+  .hero-photo { align-self:center; }
+  .hero-photo img { width:150px; }
+  .hero-bio { font-size:1.04rem; }
+  .quote { font-size:1rem; padding-left:16px; margin-top:20px; }
+  h2 { font-size:1.22rem; }
+  .entry { grid-template-columns:1fr; gap:2px; }
+  .entry .y { margin-top:3px; }
+  .news-list .ni { grid-template-columns:44px 1fr; gap:12px; }
+  .cv-head { gap:10px; }
+  .cv-head .btn-accent { width:100%; justify-content:center; }
+  .site-footer { flex-direction:column; gap:6px; }
 }
