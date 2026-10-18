@@ -27,7 +27,7 @@ at it, e.g. `/assets/img/me.jpg`.
 
 ### Replace the CV
 Drop the PDF into `assets/cv/` and point `cv:` in `_data/profile.yml` at it,
-e.g. `/assets/cv/CV_American.pdf`.
+e.g. `/assets/cv/CV_Fiaschi.pdf`.
 
 ---
 

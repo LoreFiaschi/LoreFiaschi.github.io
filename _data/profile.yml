@@ -14,7 +14,7 @@ photo: "/assets/img/me.jpg"
 photo_alt: "Portrait of Lorenzo Fiaschi"
 
 # CV — place the PDF in assets/cv/ then set the path here.
-cv: "/assets/cv/CV_American.pdf"
+cv: "/assets/cv/CV_Fiaschi.pdf"
 show_cv_button: true
 
 # One-paragraph bio (under the hero) — tweak to your voice
