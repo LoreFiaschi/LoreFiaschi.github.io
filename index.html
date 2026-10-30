@@ -39,7 +39,10 @@ layout: default
   </section>
 
   <section class="block" id="teaching">
-    <h2>Teaching</h2>
+    <div class="section-head">
+      <h2>Teaching</h2>
+      <a class="btn-accent" href="{{ '/teaching-material/' | relative_url }}">Teaching Material</a>
+    </div>
     {%- for t in site.data.teaching %}
     <div class="entry">
       <div><div class="h">{{ t.title | escape }}</div><div class="s">{{ t.detail | escape }}</div></div>
@@ -49,7 +52,7 @@ layout: default
   </section>
 
   <section class="block" id="cv">
-    <div class="cv-head">
+    <div class="section-head">
       <h2>CV</h2>
       {%- if p.show_cv_button %}
       <a class="btn-accent" href="{{ p.cv | relative_url }}">Download full CV</a>
@@ -75,8 +78,3 @@ layout: default
   </section>
 
 </div>
-
-<footer class="site-footer">
-  <span>&copy; {{ 'now' | date: "%Y" }} {{ p.name }}</span>
-  <span>Built with Jekyll on GitHub Pages</span>
-</footer>

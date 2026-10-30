@@ -17,6 +17,7 @@ site rebuilds automatically.
 | The **News** list (add a line at the top for the newest) | `_data/news.yml` |
 | Research projects | `_data/projects.yml` |
 | Teaching | `_data/teaching.yml` |
+| Teaching material (courses and slides) | `_data/teaching_material.yml` |
 | Experience / appointments | `_data/experience.yml` |
 | Education | `_data/education.yml` |
 
@@ -28,6 +29,12 @@ at it, e.g. `/assets/img/me.jpg`.
 ### Replace the CV
 Drop the PDF into `assets/cv/` and point `cv:` in `_data/profile.yml` at it,
 e.g. `/assets/cv/CV_Fiaschi.pdf`.
+
+### Add teaching slides
+Drop the file (PDF or zip) into `assets/teaching/` and set `file:` of its item in
+`_data/teaching_material.yml`, e.g. `/assets/teaching/SEAI_RL.pdf`. A click on the item downloads
+the file. Lectures of one topic go in one PDF: merge them in lecture order.
+An item with an empty `file:` is shown as plain text, without a link.
 
 ---
 
@@ -70,10 +77,12 @@ jekyll serve      # → http://localhost:4000
 
 ```
 _config.yml             site settings
-index.html              the page (assembles every section from _data)
-_layouts/default.html   HTML shell (sidebar + main)
+index.html              the home page (assembles every section from _data)
+teaching-material.html  the Teaching Material page (courses and slides)
+_layouts/default.html   HTML shell (sidebar + main + footer)
 _includes/              head, sidebar, news, Scholar icon
 _data/                  ← your editable content
 assets/css|js|img|cv    styles, theme + scrollspy scripts, photo, CV
+assets/teaching/        the slides of the Teaching Material page
 CNAME                   the custom domain
 ```

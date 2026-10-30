@@ -9,6 +9,10 @@
     {%- include sidebar.html -%}
     <main id="main">
       {{ content }}
+      <footer class="site-footer">
+        <span>&copy; {{ 'now' | date: "%Y" }} {{ site.data.profile.name }}</span>
+        <span>Built with Jekyll on GitHub Pages</span>
+      </footer>
     </main>
   </div>
   <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

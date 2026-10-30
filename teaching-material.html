@@ -1,0 +1,27 @@
+---
+layout: default
+title: Teaching Material
+permalink: /teaching-material/
+---
+
+<div class="main-col">
+
+  {%- for c in site.data.teaching_material %}
+  <section class="block">
+    <h2>{{ c.course | escape }}</h2>
+    <p class="course-inst">{{ c.institution | escape }}</p>
+    <ul class="material-list">
+      {%- for m in c.items %}
+      <li>
+        {%- if m.file and m.file != "" %}
+        <a href="{{ m.file | relative_url }}" download>{{ m.title | escape }}</a>
+        {%- else %}
+        {{ m.title | escape }}
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+
+</div>

@@ -1,0 +1,15 @@
+# Teaching material: one block per course, shown on the Teaching Material page.
+# "file" is the path of the slides or archive, e.g. "/assets/teaching/SEAI_RL.pdf".
+# While "file" is empty, the item is shown as plain text, without a link.
+
+- course: "Planning and Decision Making for Autonomous Robots"
+  institution: "ETH Zürich"
+  items:
+    - { title: "Reinforcement Learning for Path Planning", file: "/assets/teaching/PDM4AR.pdf" }
+
+- course: "Symbolic and Evolutionary Artificial Intelligence"
+  institution: "University of Pisa"
+  items:
+    - { title: "Reinforcement Learning",                       file: "/assets/teaching/SEAI_RL.pdf" }
+    - { title: "Hands-on Exercises on Reinforcement Learning", file: "/assets/teaching/RL-exercises.zip" }
+    - { title: "Non-Archimedean Artificial Intelligence",      file: "/assets/teaching/SEAI_NAAI.pdf" }

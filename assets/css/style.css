@@ -114,11 +114,16 @@ h2 { font-family:var(--serif); font-size:1.35rem; margin:0 0 16px; padding-botto
 .ni .d { font-family:var(--mono); font-size:.78rem; color:var(--accent); letter-spacing:.04em; padding-top:2px; }
 .ni .t { font-size:.96rem; line-height:1.5; }
 
-/* CV section: heading left, download button at the far right of the page */
-.cv-head { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; flex-wrap:wrap; }
-.cv-head h2 { margin:0; }
+/* Section heading row (Teaching, CV): heading left, button at the far right of the page */
+.section-head { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; flex-wrap:wrap; }
+.section-head h2 { margin:0; }
 .btn-accent { display:inline-flex; align-items:center; background:var(--accent); color:#fff; padding:10px 16px; border-radius:9px; font-weight:600; font-size:.88rem; }
 .btn-accent:hover { background:var(--accent-2); text-decoration:none; color:#fff; }
+
+/* Teaching Material page: one block per course, slides as a bullet list */
+.course-inst { color:var(--muted); font-size:.95rem; margin:-6px 0 10px; }
+.material-list { margin:0; padding-left:1.25rem; }
+.material-list li { padding:5px 0; }
 
 .site-footer { padding:22px var(--pad-x); border-top:1px solid var(--line); color:var(--muted); font-size:.8rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
 
@@ -154,7 +159,7 @@ h2 { font-family:var(--serif); font-size:1.35rem; margin:0 0 16px; padding-botto
   .entry { grid-template-columns:1fr; gap:2px; }
   .entry .y { margin-top:3px; }
   .news-list .ni { grid-template-columns:44px 1fr; gap:12px; }
-  .cv-head { gap:10px; }
-  .cv-head .btn-accent { width:100%; justify-content:center; }
+  .section-head { gap:10px; }
+  .section-head .btn-accent { width:100%; justify-content:center; }
   .site-footer { flex-direction:column; gap:6px; }
 }

@@ -7,12 +7,14 @@
     <a href="{{ p.institution_url }}" rel="noopener">{{ p.institution }}</a>
   </p>
 
+  {%- comment -%} On the home page the links are in-page anchors; on other pages they lead back home. {%- endcomment -%}
+  {%- if page.url == "/" -%}{%- assign home = "" -%}{%- else -%}{%- assign home = "/" | relative_url -%}{%- endif %}
   <nav class="s-nav" aria-label="Sections">
-    <a href="#about">About me</a>
-    <a href="#news">News</a>
-    <a href="#projects">Research projects</a>
-    <a href="#teaching">Teaching</a>
-    <a href="#cv">CV</a>
+    <a href="{{ home }}#about">About me</a>
+    <a href="{{ home }}#news">News</a>
+    <a href="{{ home }}#projects">Research projects</a>
+    <a href="{{ home }}#teaching">Teaching</a>
+    <a href="{{ home }}#cv">CV</a>
   </nav>
 
   <div class="s-contact">

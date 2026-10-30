@@ -2,11 +2,15 @@
 
 - title: "Reinforcement Learning for Path Planning"
   detail: "Seminar · M.Sc. Mechanical Engineering, ETH Zürich"
-  when: "Fall 2025"
+  when: "2025 — 2026"
 
 - title: "Reinforcement Learning"
   detail: "M.Sc. Information Engineering, University of Pisa"
-  when: "2020 — 2025"
+  when: "2021 — 2025"
+
+- title: "Non-Archimedean Artificial Intelligence"
+  detail: "M.Sc. Information Engineering, University of Pisa"
+  when: "2021 — 2025"
 
 - title: "Elements of Programming"
   detail: "B.Sc. Information Engineering, University of Pisa"
