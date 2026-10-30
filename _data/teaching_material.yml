@@ -5,7 +5,8 @@
 - course: "Planning and Decision Making for Autonomous Robots"
   institution: "ETH Zürich"
   items:
-    - { title: "Reinforcement Learning for Path Planning", file: "/assets/teaching/PDM4AR.pdf" }
+    - { title: "Reinforcement Learning for Path Planning",     file: "/assets/teaching/PDM4AR.pdf" }
+    - { title: "Hands-on Exercises on Reinforcement Learning", file: "/assets/teaching/RL-exercises.zip" }
 
 - course: "Symbolic and Evolutionary Artificial Intelligence"
   institution: "University of Pisa"
